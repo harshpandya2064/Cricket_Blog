@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request,session,redirect
+from flask import Flask,render_template, request,session,redirect,flash
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
 pymysql.install_as_MySQLdb()
@@ -23,7 +23,7 @@ app.config.update(
     MAIL_PORT = '465',
     MAIL_USE_SSL = True,
     MAIL_USERNAME = 'harshpandya677@gmail.com',
-    MAIL_PASSWORD = 'raqwaodkjybfugqi'
+    MAIL_PASSWORD = 'uabbtzwdpdeitkas'
 )
 mail =Mail(app)
 
@@ -141,7 +141,9 @@ def contact():
                           sender = email,
                           recipients = ['harshpandya677@gmail.com'],
                           body = message + '\n'+phone_num
+                          
                           )
+        flash("Message is sent successfullly","success")
 
     return render_template('contact.html',params=params)
 
@@ -159,15 +161,7 @@ def dashboard():
             posts = Posts.query.all()
             return render_template('dashboard.html',posts=posts,params=params)
         
-    return render_template('login.html')
-
-@app.route('/uploader',methods=['GET','POST'])
-def uploader():
-    if 'user' in session and session['user'] == 'Admin':
-        if request.method=='POST':
-            f = request.files['file']
-            f.save(os.path.join(app.config['UPLOAD_FOLDER'],secure_filename(f.filename)))
-            return 'Uploaded Successfully'
+    return render_template('admin_login.html')
 
 @app.route('/logout')
 def logout():

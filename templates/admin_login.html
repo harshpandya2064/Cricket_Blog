@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Cricket Blog</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Wrapper to center form -->
+    <div class="d-flex justify-content-center align-items-center min-vh-100"
+        style="background: linear-gradient(135deg, #1e1e21e3, #00bfff);">
+        <div class="login-card p-4 rounded shadow" style="width: 380px; background: #fff;">
+
+            <!-- Title -->
+            <h1 class="h3 text-center mb-4">Admin Login</h1>
+
+            <!-- Login Form -->
+            <form action="/dashboard" method="post">
+                <!-- Username -->
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                        required>
+                    <label for="username">Username</label>
+                </div>
+
+                <!-- Password -->
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                        required>
+                    <label for="password">Password</label>
+                </div>
+
+                <!-- Remember Me -->
+                <!-- <div class="form-check text-start mb-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div> -->
+
+                <!-- Submit Button -->
+                <button class="btn btn-primary w-100 py-2" type="submit">Sign In</button>
+
+                <!-- Footer -->
+                <!-- <p class="mt-4 mb-0 text-center text-body-secondary">&copy; CodingHunter 2017–2025</p> -->
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

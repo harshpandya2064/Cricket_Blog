@@ -20,9 +20,9 @@
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
             <!-- Post preview-->
-            {% for post in posts  %}
-                
-           
+            {% for post in posts %}
+
+
             <div class="post-preview">
                 <a href="/post/{{post.slug}}">
                     <h2 class="post-title">{{post.title}}</h2>
@@ -37,15 +37,24 @@
                     {{post.content[0:50]}}...
                 </p>
             </div>
-             {% endfor %}
+            {% endfor %}
             <!-- Divider-->
             <hr class="my-4" />
-            <!-- Pager-->
-             <div class="clearfix">
-            <a class="btn btn-primary text-uppercase" href="{{prev}}"> &lbarr; Previous Posts </a>
-            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{{next}}"> Next Posts &rbarr;</a></div>
-        </div>
+
+            <!-- Pager -->
+            <div class="d-flex justify-content-between mb-4">
+                <!-- Previous button -->
+                <a class="btn btn-primary text-uppercase px-4" style="min-width: 180px;" href="{{prev}}">
+                    ← Previous Posts
+                </a>
+
+                <!-- Next button -->
+                <a class="btn btn-primary text-uppercase px-4" style="min-width: 180px;" href="{{next}}">
+                    Next Posts →
+                </a>
+            </div>
+
+
         </div>
     </div>
-</div>
-{% endblock body %}
+    {% endblock body %}
