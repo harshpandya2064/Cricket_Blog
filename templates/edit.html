@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+ </head>
+ <body>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                
+                <div class="my-5">
+                    <form id="contactForm" action="/edit/{{post.sno if post else 0}}" method="post" >
+                        <div class="form-floating">
+                            <input class="form-control" value="{{post.title}}" name = 'title' id="title" type="text" placeholder="title" required/>
+                            <label for="name">Title</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" value="{{post.tagline}}" name = 'tagline' id="tagline" type="text" placeholder="tagline" required/>
+                            <label for="name">Tage Line</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" value="{{post.slug}}" name = 'slug' id="slug" type="text" placeholder="slug" required/>
+                            <label for="name">Slug</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" value="{{post.content}}" name = 'content' id="content" type="text" placeholder="content" required/>
+                            <label for="name">Content</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" value="{{post.img_url}}" name ='img_url' id="img_url" type="text" placeholder="image" required/>
+                            <label for="name">Image</label>
+                        </div>
+                        <br />
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary text-uppercase " id="submitButton" class="btn btn-primary text-uppercase "  type="submit" > 
+                         {{ 'Update' if post else 'Add' }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ </body>
+ </html>
